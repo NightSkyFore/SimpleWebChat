@@ -1,0 +1,25 @@
+SimpleWebChat
+
+    This is a NodeJs implementation of web chat server, with simple usage of session cookie
+and login auth.
+
+Require npm package:
+	express
+	pug
+	express-session
+	body-parser
+	multer
+	sqlite3
+	bluebird
+	nodejs-websocket
+
+All packages are the latest stable version.
+
+besides:
+	I use the lastest version of jquery and bootstrap for UI, which may have some problem with older version.
+
+To start a server, run:
+	node expressServer.js
+
+then you will get the server running under port 3000(http) and 3001(websocket),
+you could change them to any ports in file expressServer.js as you like.

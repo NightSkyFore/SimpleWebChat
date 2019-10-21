@@ -1,0 +1,47 @@
+doctype html
+html.h-100
+  head
+    title Login
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.js')
+    link(
+        rel='stylesheet'
+        href='/css/bootstrap.css'
+    )
+
+  body.h-100
+    div.container-fluid.h-100
+      div.row.h-100
+        div.col-8
+        div.col-4.h-100
+          div.container.h-100.d-flex.flex-column
+            div.row.border.border-second.bg-info.rounded.p-2 
+              div.col= '欢迎你，'
+                span(id='username')= username
+                span(id='chatid' style='display:none')= chatid
+              div.col(id='count')
+              div.col
+                a(href='/logout' style='margin-left: 10px') 退出
+
+            div.h-100.overflow-auto(id='log' style='background-color: #EDEDED;')
+              each val in data
+                div.card.my-2.mx-2(
+                    style='background-color: #95EC69;'
+                )
+                  div.toast-header
+                    strong.mr-auto= val.username
+                    small= val.time
+                  div.toast-body= val.message
+                  
+            div.input-group
+              input.form-control(
+                id='newMsg'
+                name='newMsg'
+                placeholder='输入文字发言'
+              )
+              div.input-group-append
+                button.btn.btn-primary(
+                  id='send'
+                  type='submit'
+                ) 发送
+    script(src='/js/websocket-client.js')

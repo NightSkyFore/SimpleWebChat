@@ -1,0 +1,92 @@
+doctype html
+html
+  head
+    title Login
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.js')
+    link(
+        rel='stylesheet'
+        href='/css/bootstrap.css'
+    )
+
+  body(style='background-color: #E8E8E8;')
+    div.container-fluid
+      div.row
+        div.col-8
+          div.text-center
+            div.cover.d-flex.p-3.flex-column
+              header.navbar
+                div.nav-item 
+                  h3 NightSky
+              div.inner.my-5(style='min-width: 100px;')
+              main.inner.cover(role='main') 
+                h1 欢迎
+                h3 来到我的沙雕聊天室
+        div.col-4.text-center
+          div.container(style='max-width: 300px;')
+            ul.nav.nav-tabs
+              li.nav-item
+                a.nav-link(href='#panel-1' data-toggle='tab') 注册
+              li.nav-item
+                a.nav-link.active(href='#panel-2' data-toggle='tab') 登录
+            div.tab-content
+              div.tab-pane(id='panel-1')
+                form.userinfo(
+                  role='form'
+                  action='/signup'
+                  method='POST'
+                  style='padding-top: 6rem;'
+                )
+                  div.input-group
+                    input.form-control(
+                      type='email'
+                      name='email'
+                      placeholder='电子邮件'
+                    )
+                  div.input-group
+                    input.form-control(
+                      type='text'
+                      name='username'
+                      placeholder='用户名'
+                    )
+                  div.input-group
+                    input.form-control(
+                      type='password'
+                      name='password'
+                      placeholder='密码'
+                    )
+                  div.input-group
+                    input.form-control(
+                      type='password'
+                      name='repassword'
+                      placeholder='确认密码'
+                    )
+                  button.btn.btn-lg.btn-primary.btn-block(
+                    type='submit'
+                    style='margin-top: 50px;'
+                  ) 注册
+              div.tab-pane.active(id='panel-2')
+                form.userinfo(
+                  role='form'
+                  action='/login'
+                  method='POST'
+                  style='padding-top: 6rem;'
+                )
+                  div.input-group
+                    input.form-control(
+                      type='text'
+                      name='username'
+                      placeholder='用户名'
+                    )
+                  div.input-group
+                    input.form-control(
+                      type='password'
+                      name='password'
+                      placeholder='密码'
+                    )
+                  if errMsg
+                    div(style='color: red;')= errMsg
+                  button.btn.btn-lg.btn-primary.btn-block(
+                    type='submit'
+                    style='margin-top: 50px;'
+                  ) 开始聊天
